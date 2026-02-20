@@ -66,12 +66,15 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* Adjusted Aspect Ratio 2/3 */
         .image-frame{
             aspect-ratio: 2/3;
             border-radius: 2rem;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
+            width: 100%;
+            max-width: 1024px;
         }
         .image-frame img{
             width: 100%;
@@ -148,6 +151,12 @@
         ::-webkit-scrollbar{ width: 8px; }
         ::-webkit-scrollbar-track{ background: #020617; }
         ::-webkit-scrollbar-thumb{ background: #1e293b; border-radius: 10px; }
+
+        /* Touch interaction optimizations */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem !important; line-height: 1.1; }
+            .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        }
     </style>
 </head>
 
@@ -162,7 +171,7 @@
                 <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center">
                     <img src="./assets/ChatGPT%20Image%2014%20f%C3%A9vr.%202026%2C%2015_20_50.png" alt="Trendme-UP Logo" class="w-full h-full object-contain p-1" />
                 </div>
-                <span class="text-2xl font-extrabold tracking-tighter text-white uppercase italic">
+                <span class="text-xl md:text-2xl font-extrabold tracking-tighter text-white uppercase italic">
                     Trendme<span class="text-cyan-400">-UP</span>
                 </span>
             </div>
@@ -180,12 +189,13 @@
                 <button id="langToggle" onclick="toggleLanguage()" class="bg-white/5 hover:bg-white/15 px-4 py-2 rounded-full border border-white/10 text-white font-bold text-xs transition-all">
                     <span id="langText">FR</span>
                 </button>
-                <a href="tel:+212605601638" class="bg-white/5 hover:bg-white/15 px-6 py-2 rounded-full flex items-center gap-2 border border-white/10 transition-all">
-                    <i data-lucide="phone" class="w-4 h-4 text-cyan-400"></i> +212 605 601 638
+                <!-- Direct WhatsApp Link -->
+                <a href="https://wa.me/212605601638" target="_blank" class="bg-white/5 hover:bg-white/15 px-6 py-2 rounded-full flex items-center gap-2 border border-white/10 transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-cyan-400"></i> WhatsApp
                 </a>
             </div>
 
-            <button class="md:hidden text-white" onclick="toggleMenu()">
+            <button class="md:hidden text-white p-2" onclick="toggleMenu()">
                 <i data-lucide="menu" id="menu-icon"></i>
             </button>
         </div>
@@ -197,6 +207,9 @@
                 <a href="#services" onclick="toggleMenu()" data-i18n="nav-services">Services</a>
                 <a href="#pricing" onclick="toggleMenu()" data-i18n="nav-plans">Plans</a>
                 <a href="#contact" onclick="toggleMenu()" data-i18n="nav-contact">Contact</a>
+                <a href="https://wa.me/212605601638" target="_blank" class="text-cyan-400 flex items-center gap-2 pt-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                </a>
             </div>
         </div>
     </nav>
@@ -207,26 +220,26 @@
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
             <div class="text-left space-y-8">
-                <h1 class="text-6xl md:text-7xl font-black leading-tight text-white">
+                <h1 class="text-5xl md:text-7xl hero-title font-black leading-tight text-white">
                     <span data-i18n="hero-title-1">Boost your</span> <span class="gradient-text" data-i18n="hero-title-2">LOCAL BUSINESS</span>
                 </h1>
 
-                <p class="text-xl text-slate-400 max-w-lg leading-relaxed font-medium" data-i18n="hero-desc">
+                <p class="text-lg md:text-xl text-slate-400 max-w-lg leading-relaxed font-medium" data-i18n="hero-desc">
                     Digital marketing agency in Rabat helping SMEs grow with Ads, SEO & Social Media.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-5 pt-4">
-                    <a href="#contact" class="bg-yellow-400 px-10 py-5 rounded-2xl text-black font-black text-lg hover:scale-105 transition-all text-center" data-i18n="btn-audit">
+                    <a href="#contact" class="bg-yellow-400 px-10 py-5 rounded-2xl text-black font-black text-lg hover:scale-105 transition-all text-center btn-glow" data-i18n="btn-audit">
                         Get a Free Audit
                     </a>
                 </div>
             </div>
 
             <!-- Visual Component with Popping Bubble Icons -->
-            <div class="relative flex justify-center">
-                <div class="relative w-72 h-[580px]">
+            <div class="relative flex justify-center mt-10 lg:mt-0">
+                <div class="relative w-64 md:w-72 h-[500px] md:h-[580px]">
                     <!-- Phone mockup -->
-                    <div class="absolute inset-0 bg-slate-800 rounded-[3rem] border-[12px] border-slate-700 overflow-hidden shadow-2xl z-20">
+                    <div class="absolute inset-0 bg-slate-800 rounded-[3rem] border-[10px] md:border-[12px] border-slate-700 overflow-hidden shadow-2xl z-20">
                         <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800')"></div>
 
                         <div class="absolute inset-0 flex flex-col items-center justify-end">
@@ -237,32 +250,32 @@
                                 </div>
                                 <h4 class="text-white font-black text-xl mb-4 tracking-tighter leading-none uppercase">BOOST YOUR BUSINESS</h4>
 
-                                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 text-slate-900 rounded-full font-black text-xs uppercase tracking-widest shadow-lg shadow-cyan-500/30 hover:scale-105 transition-transform">
-                                    <i data-lucide="user-plus" class="w-4 h-4"></i>
-                                    <span data-i18n="phone-btn">Join Us</span>
+                                <a href="https://wa.me/212605601638" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 text-slate-900 rounded-full font-black text-xs uppercase tracking-widest shadow-lg shadow-cyan-500/30 hover:scale-105 transition-transform">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span data-i18n="phone-btn">WhatsApp</span>
                                 </a>
                             </div>
                         </div>
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-700 rounded-b-3xl z-30"></div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 md:w-32 h-6 bg-slate-700 rounded-b-3xl z-30"></div>
                     </div>
 
-                    <!-- Bubble Icons -->
-                    <div class="absolute -left-4 top-14 floating-icon bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
-                        <i data-lucide="facebook"></i>
+                    <!-- Bubble Icons (Scaled for mobile) -->
+                    <div class="absolute -left-2 md:-left-4 top-14 floating-icon bg-blue-600 w-10 md:w-12 h-10 md:h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
                     </div>
-                    <div class="absolute -right-4 top-24 floating-icon bg-gradient-to-tr from-pink-500 to-yellow-400 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg z-30">
-                        <i data-lucide="instagram"></i>
+                    <div class="absolute -right-2 md:-right-4 top-24 floating-icon bg-gradient-to-tr from-pink-500 to-yellow-400 w-12 md:w-14 h-12 md:h-14 rounded-xl flex items-center justify-center shadow-lg z-30">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
                     </div>
-                    <div class="absolute -left-6 top-1/2 floating-icon bg-black w-12 h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white">
+                    <div class="absolute -left-4 md:-left-6 top-1/2 floating-icon bg-black w-10 md:w-12 h-10 md:h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 md:w-6 md:h-6 text-white">
                             <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01V15a6.9 6.9 0 0 1-1.4 4.18c-1.31 1.68-3.4 2.73-5.53 2.81-2.12.08-4.32-.61-5.88-2.09A7.26 7.26 0 0 1 1.25 14c-.06-2.12.65-4.3 2.08-5.88 1.5-1.66 3.73-2.58 5.96-2.43.1 1.34.1 2.68.1 4.02-1.18-.08-2.4.15-3.39.81-.92.61-1.44 1.7-1.39 2.79.02 1.09.52 2.12 1.39 2.79.91.71 2.13.98 3.25.79 1.13-.19 2.13-.88 2.67-1.89.32-.61.46-1.3.46-2V.02z"/>
                         </svg>
                     </div>
-                    <div class="absolute -right-2 bottom-32 floating-icon bg-white w-12 h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
-                        <i data-lucide="search" class="text-black"></i>
+                    <div class="absolute -right-1 md:-right-2 bottom-32 floating-icon bg-white w-10 md:w-12 h-10 md:h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
+                        <i data-lucide="search" class="text-black w-5 h-5"></i>
                     </div>
-                    <div class="absolute left-6 bottom-4 floating-icon bg-cyan-500 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
-                        <i data-lucide="bar-chart-3"></i>
+                    <div class="absolute left-4 md:left-6 bottom-4 floating-icon bg-cyan-500 w-10 md:w-12 h-10 md:h-12 rounded-xl flex items-center justify-center shadow-lg z-30">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
                     </div>
                 </div>
             </div>
@@ -270,17 +283,17 @@
     </section>
 
     <!-- WHO WE ARE SECTION -->
-    <section id="who-we-are" class="py-32 bg-slate-900 overflow-hidden relative">
+    <section id="who-we-are" class="section-padding py-24 bg-slate-900 overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-5xl font-black mb-6" data-i18n="who-title">Who We Are</h2>
+                <h2 class="text-4xl md:text-5xl font-black mb-6" data-i18n="who-title">Who We Are</h2>
 
                 <p class="text-slate-400 text-lg max-w-4xl mx-auto font-medium leading-relaxed" data-i18n="who-desc">
                     Trendme-UP is a Moroccan powerhouse of innovation. We specialize in high-performance <b>SEO</b> to dominate search rankings, precision <b>Meta Ads</b> to capture local leads, and data-driven <b>Growth Hacking</b> strategies. From technical <b>Audit & Strategy</b> to viral content, we provide the ultimate <b>Full-Stack Digital</b> roadmap for Rabat’s most ambitious businesses.
                 </p>
 
                 <!-- ✅ Clickable keywords (chips) -->
-                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <div class="mt-8 flex flex-wrap justify-center gap-2 md:gap-3">
                     <span class="kw-chip" data-kw="seo"><i data-lucide="search" class="w-4 h-4 text-cyan-400"></i><span data-i18n="kw-seo">SEO</span></span>
                     <span class="kw-chip" data-kw="ads"><i data-lucide="megaphone" class="w-4 h-4 text-cyan-400"></i><span data-i18n="kw-ads">Meta Ads</span></span>
                     <span class="kw-chip" data-kw="local"><i data-lucide="map-pin" class="w-4 h-4 text-cyan-400"></i><span data-i18n="kw-local">Local SEO</span></span>
@@ -293,15 +306,15 @@
                     <div class="flex items-start justify-between gap-4">
                         <div>
                             <p id="kwTitle" class="text-white font-black text-xl"></p>
-                            <p id="kwText" class="text-slate-300 mt-2"></p>
+                            <p id="kwText" class="text-slate-300 mt-2 text-sm md:text-base"></p>
                         </div>
-                        <button id="kwClose" class="shrink-0 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-3 transition-all" aria-label="Close">
+                        <button id="kwClose" class="shrink-0 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-2 md:p-3 transition-all" aria-label="Close">
                             <i data-lucide="x" class="w-5 h-5 text-slate-200"></i>
                         </button>
                     </div>
                     <ul id="kwList" class="mt-6 grid md:grid-cols-2 gap-3 text-sm text-slate-200"></ul>
                     <div class="mt-6">
-                        <a href="#contact" class="inline-flex items-center gap-2 bg-cyan-500 text-slate-900 font-black px-6 py-3 rounded-2xl hover:scale-[1.02] transition-transform">
+                        <a href="#contact" class="inline-flex items-center gap-2 bg-cyan-500 text-slate-900 font-black px-6 py-3 rounded-2xl hover:scale-[1.02] transition-transform w-full md:w-auto justify-center">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                             <span data-i18n="kw-cta">Request Free Audit</span>
                         </a>
@@ -309,7 +322,7 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-10 mb-20">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-10 mb-20">
                 <div class="image-frame group">
                     <img src="./assets/ChatGPT%20Image%2015%20f%C3%A9vr.%202026%2C%2021_31_05.png" alt="Our Team">
                 </div>
@@ -320,7 +333,7 @@
 
             <!-- Video (YOUR ASSET) -->
             <div class="relative max-w-5xl mx-auto video-glow">
-                <video class="aspect-video w-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl"
+                <video class="aspect-video w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl"
                         controls playsinline preload="metadata">
                     <source src="./assets/202602150344%20(1)%20(1).mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -330,18 +343,18 @@
     </section>
 
     <!-- Interactive Services Grid -->
-    <section id="services" class="py-32 bg-white text-slate-900">
+    <section id="services" class="section-padding py-24 bg-white text-slate-900">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
+            <div class="text-center mb-12 md:mb-20">
                 <h2 class="text-cyan-600 font-bold uppercase tracking-[0.2em] text-xs mb-4" data-i18n="srv-tag">Solutions</h2>
-                <p class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight" data-i18n="srv-title">Full-Stack Digital Growth.</p>
-                <div class="w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
+                <p class="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight" data-i18n="srv-title">Full-Stack Digital Growth.</p>
+                <div class="w-16 md:w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
-                    <div class="w-16 h-16 bg-cyan-500 text-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="file-search"></i></div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight" data-i18n="srv-1-t">Audit & Strategy</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="service-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-cyan-500 text-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="file-search"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black mb-4 tracking-tight" data-i18n="srv-1-t">Audit & Strategy</h3>
                     <p class="text-slate-500 text-sm leading-relaxed" data-i18n="srv-1-d">Technical analysis to find your hidden revenue leaks.</p>
                     <div class="service-details">
                         <ul class="space-y-3 text-xs font-bold border-t border-slate-200 pt-4 text-cyan-600" data-i18n="srv-1-details">
@@ -352,9 +365,9 @@
                     </div>
                 </div>
 
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
-                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="megaphone"></i></div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight" data-i18n="srv-2-t">Google & Meta Ads</h3>
+                <div class="service-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="megaphone"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black mb-4 tracking-tight" data-i18n="srv-2-t">Google & Meta Ads</h3>
                     <p class="text-slate-500 text-sm leading-relaxed" data-i18n="srv-2-d">Paid traffic that actually converts prospects into customers.</p>
                     <div class="service-details">
                         <ul class="space-y-3 text-xs font-bold border-t border-slate-200 pt-4 text-blue-600" data-i18n="srv-2-details">
@@ -365,9 +378,9 @@
                     </div>
                 </div>
 
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
-                    <div class="w-16 h-16 bg-green-500 text-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="bar-chart-3"></i></div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight" data-i18n="srv-3-t">SEO & Local SEO</h3>
+                <div class="service-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 text-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="bar-chart-3"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black mb-4 tracking-tight" data-i18n="srv-3-t">SEO & Local SEO</h3>
                     <p class="text-slate-500 text-sm leading-relaxed" data-i18n="srv-3-d">Dominate Google Search and Maps in your local neighborhood.</p>
                     <div class="service-details">
                         <ul class="space-y-3 text-xs font-bold border-t border-slate-200 pt-4 text-green-600" data-i18n="srv-3-details">
@@ -378,9 +391,9 @@
                     </div>
                 </div>
 
-                <div class="service-card p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
-                    <div class="w-16 h-16 bg-purple-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="rocket"></i></div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight" data-i18n="srv-4-t">Growth Hacking</h3>
+                <div class="service-card p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-slate-50 border border-slate-100 group overflow-hidden" onclick="toggleService(this)">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-purple-600 text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform"><i data-lucide="rocket"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black mb-4 tracking-tight" data-i18n="srv-4-t">Growth Hacking</h3>
                     <p class="text-slate-500 text-sm leading-relaxed" data-i18n="srv-4-d">Scaling your business fast with technical and creative funnels.</p>
                     <div class="service-details">
                         <ul class="space-y-3 text-xs font-bold border-t border-slate-200 pt-4 text-purple-600" data-i18n="srv-4-details">
@@ -395,14 +408,14 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-32 bg-slate-950 relative overflow-hidden">
+    <section id="pricing" class="section-padding py-24 bg-slate-950 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-5xl font-black mb-20" data-i18n="price-title">Choose Your Plan</h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-12 md:mb-20" data-i18n="price-title">Choose Your Plan</h2>
             <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="pricing-card p-10 rounded-[3rem] flex flex-col">
-                    <h3 class="text-xl font-bold mb-2 text-white" data-i18n="p1-t">Starter Pack</h3>
-                    <div class="mb-10"><span class="text-5xl font-black text-white">1,900</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
-                    <ul class="space-y-4 mb-12 flex-grow text-sm text-slate-300">
+                <div class="pricing-card p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col">
+                    <h3 class="text-lg font-bold mb-2 text-white" data-i18n="p1-t">Starter Pack</h3>
+                    <div class="mb-8"><span class="text-4xl md:text-5xl font-black text-white">1,900</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-300">
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p1-f1">Local SEO Setup</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p1-f2">Google Maps Optimization</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p1-f3">1 Social Channel</span></li>
@@ -410,11 +423,11 @@
                     <a href="#contact" class="w-full py-4 text-center border border-white/10 rounded-2xl font-bold hover:bg-white/5 transition-all" data-i18n="p1-btn">Select Starter</a>
                 </div>
 
-                <div class="pricing-card p-10 rounded-[3rem] flex flex-col relative border-cyan-500/30 bg-cyan-500/5">
+                <div class="pricing-card p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col relative border-cyan-500/30 bg-cyan-500/5">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-slate-900 px-5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest" data-i18n="p-pop">Most Popular</div>
-                    <h3 class="text-xl font-bold mb-2 text-white" data-i18n="p2-t">Growth Pack</h3>
-                    <div class="mb-10"><span class="text-5xl font-black text-cyan-400">3,900</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
-                    <ul class="space-y-4 mb-12 flex-grow text-sm text-slate-200">
+                    <h3 class="text-lg font-bold mb-2 text-white" data-i18n="p2-t">Growth Pack</h3>
+                    <div class="mb-8"><span class="text-4xl md:text-5xl font-black text-cyan-400">3,900</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-200">
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 inline mr-2"></i> <span data-i18n="p2-f1">Ads Management</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 inline mr-2"></i> <span data-i18n="p2-f2">Advanced SEO</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 inline mr-2"></i> <span data-i18n="p2-f3">2 Social Channels</span></li>
@@ -422,10 +435,10 @@
                     <a href="#contact" class="w-full py-5 text-center bg-cyan-500 text-slate-900 rounded-2xl font-black shadow-lg hover:scale-[1.03] transition-all" data-i18n="p2-btn">Boost Now</a>
                 </div>
 
-                <div class="pricing-card p-10 rounded-[3rem] flex flex-col text-left">
-                    <h3 class="text-xl font-bold mb-2 text-white" data-i18n="p3-t">Business Pack</h3>
-                    <div class="mb-10"><span class="text-5xl font-black text-white">7,500</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
-                    <ul class="space-y-4 mb-12 flex-grow text-sm text-slate-300">
+                <div class="pricing-card p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col text-left">
+                    <h3 class="text-lg font-bold mb-2 text-white" data-i18n="p3-t">Business Pack</h3>
+                    <div class="mb-8"><span class="text-4xl md:text-5xl font-black text-white">7,500</span> <span class="text-slate-400 text-xs">MAD/mo</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-300">
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p3-f1">Full Management</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p3-f2">Video Content</span></li>
                         <li><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-500 inline mr-2"></i> <span data-i18n="p3-f3">All Social Channels</span></li>
@@ -437,20 +450,26 @@
     </section>
 
     <!-- CONTACT (FORMSPREE LINKED) -->
-    <section id="contact" class="py-32 bg-white text-slate-900 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20">
-            <div class="space-y-12 text-left">
-                <h2 class="text-5xl font-black mb-6" data-i18n="nav-contact">Contact Us</h2>
+    <section id="contact" class="section-padding py-24 bg-white text-slate-900 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20">
+            <div class="space-y-8 md:space-y-12 text-left">
+                <h2 class="text-4xl md:text-5xl font-black mb-6" data-i18n="nav-contact">Contact Us</h2>
                 <p class="text-slate-500 mb-10" data-i18n="ct-resp">We respond within 24 hours.</p>
 
                 <div class="space-y-6">
-                    <p class="font-bold flex items-center gap-3 text-slate-950">📞 +212 605 601 638</p>
-                    <p class="font-bold flex items-center gap-3 text-slate-950">✉️ Trendme1Up@gmail.com</p>
-                    <p class="text-sm text-slate-500">Rabat – Morocco</p>
+                    <a href="https://wa.me/212605601638" target="_blank" class="font-bold flex items-center gap-3 text-slate-950 hover:text-cyan-600 transition-colors">
+                        <i data-lucide="message-circle" class="text-cyan-500"></i> WhatsApp: +212 605 601 638
+                    </a>
+                    <a href="mailto:Trendme1Up@gmail.com" class="font-bold flex items-center gap-3 text-slate-950 hover:text-cyan-600 transition-colors">
+                        <i data-lucide="mail" class="text-cyan-500"></i> Trendme1Up@gmail.com
+                    </a>
+                    <p class="text-sm text-slate-500 flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-cyan-500"></i> Rabat – Morocco
+                    </p>
                 </div>
             </div>
 
-            <div class="bg-slate-900 rounded-3xl p-12 text-white shadow-2xl relative">
+            <div class="bg-slate-900 rounded-[2rem] md:rounded-3xl p-8 md:p-12 text-white shadow-2xl relative">
                 <form id="contactForm" action="https://formspree.io/f/mreaqvqg" method="POST" class="space-y-6">
                     <input type="hidden" name="_subject" value="New Lead - Trendme-UP">
 
@@ -460,14 +479,14 @@
                     <textarea name="message" rows="4" placeholder="Your message" class="w-full p-4 rounded-xl bg-white/10 outline-none focus:ring-1 focus:ring-cyan-500"></textarea>
 
                     <button type="submit" class="w-full py-4 bg-cyan-500 text-black font-black rounded-xl hover:bg-cyan-400 transition-colors" data-i18n="f-btn">Send Message</button>
-                    <p id="formStatus" class="text-sm mt-4 hidden"></p>
+                    <p id="formStatus" class="text-sm mt-4 hidden text-center"></p>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-slate-950 border-t border-white/5 text-center">
+    <footer class="py-16 md:py-20 bg-slate-950 border-t border-white/5 text-center px-6">
         <div class="flex items-center justify-center space-x-3 mb-10">
             <div class="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
                 <img src="./assets/ChatGPT%20Image%2014%20f%C3%A9vr.%202026%2C%2015_20_50.png" class="w-full h-full object-contain" alt="Trendme-UP">
@@ -475,7 +494,7 @@
             <span class="text-2xl font-black text-white italic">Trendme<span class="text-cyan-400">-UP</span></span>
         </div>
 
-        <div class="flex justify-center space-x-6 mb-12">
+        <div class="flex justify-center space-x-4 md:space-x-6 mb-12">
             <a href="https://www.instagram.com/trendme1up/" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all"><i data-lucide="instagram"></i></a>
             <a href="https://www.tiktok.com/@trendme.up1" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all">
                 <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
@@ -497,7 +516,7 @@
                 "nav-home":"Home","nav-who":"Who We Are","nav-services":"Services","nav-plans":"Plans","nav-contact":"Contact",
                 "hero-title-1":"Boost your","hero-title-2":"LOCAL BUSINESS","hero-desc":"Digital marketing agency in Rabat helping SMEs grow with Ads, SEO & Social Media.",
                 "btn-audit":"Get a Free Audit",
-                "phone-btn":"Join Us",
+                "phone-btn":"WhatsApp",
                 "who-title":"Who We Are",
                 "who-desc":"Trendme-UP is a Moroccan powerhouse of innovation. We specialize in high-performance <b>SEO</b> to dominate search rankings, precision <b>Meta Ads</b> to capture local leads, and data-driven <b>Growth Hacking</b> strategies. From technical <b>Audit & Strategy</b> to viral content, we provide the ultimate <b>Full-Stack Digital</b> roadmap for Rabat’s most ambitious businesses.",
                 "kw-seo":"SEO","kw-ads":"Meta Ads","kw-local":"Local SEO","kw-audit":"Audit","kw-growth":"Growth",
@@ -516,7 +535,7 @@
                 "nav-home":"Accueil","nav-who":"Qui Sommes-Nous","nav-services":"Services","nav-plans":"Tarifs","nav-contact":"Contact",
                 "hero-title-1":"Booster votre","hero-title-2":"BUSINESS LOCAL","hero-desc":"Agence de marketing digital à Rabat aidant les PME à grandir avec Pubs, SEO & Réseaux Sociaux.",
                 "btn-audit":"Audit Gratuit",
-                "phone-btn":"Rejoindre",
+                "phone-btn":"WhatsApp",
                 "who-title":"Qui Sommes-Nous",
                 "who-desc":"Trendme-UP est un moteur d'innovation au Maroc. Nous nous spécialisons dans le <b>SEO</b> de haute performance, les publicités <b>Meta Ads</b> de précision pour capturer des prospects locaux, et des stratégies de <b>Growth Hacking</b> basées sur les données. De l'<b>Audit technique et Stratégique</b> au contenu viral, nous offrons la feuille de route <b>Full-Stack Digitale</b> ultime pour les entreprises les plus ambitieuses de Rabat.",
                 "kw-seo":"SEO","kw-ads":"Meta Ads","kw-local":"SEO Local","kw-audit":"Audit","kw-growth":"Croissance",
@@ -638,7 +657,7 @@
             chips.forEach(c => c.classList.toggle('active', c.dataset.kw === key));
             kwTitle.textContent = d.title[window.currentLang];
             kwText.textContent = d.text[window.currentLang];
-            kwList.innerHTML = d.bullets[window.currentLang].map(b => `<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>${b}</li>`).join('');
+            kwList.innerHTML = d.bullets[window.currentLang].map(b => `<li class="flex items-center gap-2 text-xs md:text-sm"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>${b}</li>`).join('');
             kwPanel.classList.remove('hidden');
             lucide.createIcons();
         }
